@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="testsuite" verbose="1" >
+    <test name="Login Test"   >
+        <classes>
+            <class name="com.nopcommerce.demo.testng.TestNGDemo"></class>
+            <class name="com.nopcommerce.demo.testsuite.LoginPageTest"></class>
+        </classes>
+    </test>
+</suite>
