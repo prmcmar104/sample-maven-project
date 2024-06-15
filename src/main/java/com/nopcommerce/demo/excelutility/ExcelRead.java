@@ -37,7 +37,7 @@ public class ExcelRead {
             excelWBook = new XSSFWorkbook(ExcelFile);
             excelWSheet = excelWBook.getSheet(sheetName);
 
-            Cell = excelWSheet.getRow(1).getCell(1);
+            Cell = excelWSheet.getRow(2).getCell(1);
             String cellData = Cell.getStringCellValue();
             System.out.println("Cell Data: " + cellData);
 

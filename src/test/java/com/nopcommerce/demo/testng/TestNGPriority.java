@@ -1,5 +1,6 @@
 package com.nopcommerce.demo.testng;
 
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 
 /**
@@ -7,12 +8,13 @@ import org.testng.annotations.Test;
  */
 public class TestNGPriority {
 
-    @Test()
+    @Test(priority = 3)
     public void test1(){
         System.out.println("I am in test1");
     }
 
-    @Test()
+    @Ignore
+    @Test(priority = 2)
     public void test2(){
         System.out.println("I am in test2");
     }
@@ -21,4 +23,5 @@ public class TestNGPriority {
     public void test(){
         System.out.println("I am in test");
     }
+
 }

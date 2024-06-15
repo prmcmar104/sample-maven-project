@@ -5,29 +5,20 @@ import com.nopcommerce.demo.pages.LoginPage;
 import com.nopcommerce.demo.testbase.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import resources.testdata.TestData;
 
 /**
  * Created by Jay Vaghani
  */
-public class LoginPageTest extends BaseTest {
+public class LoginPageTestWithDataProvider extends BaseTest {
 
     HomePage homePage = new HomePage();
     LoginPage loginPage = new LoginPage();
 
-    @Test
-    public void verifyUserShouldNavigateToLoginPageSuccessfully(){
+    @Test(dataProvider = "credentials", dataProviderClass = TestData.class)
+    public void verifyErrorMessageWithInvalidCredentials(String username, String password){
         homePage.clickOnLoginLink();
-        String expectedText = "Welcome, Please Sign In";
-        String actualText = loginPage.getWelcomeText();
-        Assert.assertEquals(actualText, expectedText, "Login page not displayed");
-    }
-
-    @Test
-    public void verifyErrorMessageWithInvalidCredentials(){
-        homePage.clickOnLoginLink();
-        loginPage.enterEmailId("Prime123@gmail.com");
-        loginPage.enterPassword("Prime123");
-        loginPage.clickOnLoginButton();
+        loginPage.loginToApplication(username, password);
         String expectedMessage = "Login was unsuccessful. Please correct the errors and try again.\n" +
                 "No customer account found";
         String actualMessage = loginPage.getErrorMessage();

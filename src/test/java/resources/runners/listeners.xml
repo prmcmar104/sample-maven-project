@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="testsuite" verbose="1" >
+    <listeners>
+        <listener class-name="com.nopcommerce.demo.testng.TestNGListeners"></listener>
+    </listeners>
+    <test name="Login Test"   >
+        <classes>
+            <class name="com.nopcommerce.demo.testng.TestNGListenersDemo"></class>
+        </classes>
+    </test>
+</suite>
